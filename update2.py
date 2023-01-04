@@ -36,7 +36,9 @@ def on_exit():
 
 
 def delete_all():
+    text.config(state = 'normal')
     text.delete(1.0, "end")      # 刪除全部內容
+    text.config(state = 'disable')
 
 
 
@@ -49,7 +51,7 @@ win.title('群旭科技發行圖面通知')
 win.geometry("1100x200")
 win.resizable(width= 1, height=False)
 text = tk.Text(win)  # 顯示文字
-text.config(width = 200 , height = 50)
+text.config(width = 300 , height = 50)
 text.config(bg = '#dcdcdc' , fg = '#191970')
 scrollbar = tk.Scrollbar(win)          # 建立滾動條
 scrollbar.pack(side='right', fill='y')
@@ -62,6 +64,10 @@ WindowsSTDOUT = windll.kernel32.GetStdHandle(-11)
 dimensions = SMALL_RECT(-10, -10, 100, 20) # (left, top, right, bottom)
 # Width = (Right - Left) + 1; Height = (Bottom - Top) + 1
 windll.kernel32.SetConsoleWindowInfo(WindowsSTDOUT, True, byref(dimensions))
+
+
+
+
 
 
 
